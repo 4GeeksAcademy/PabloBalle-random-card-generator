@@ -67,18 +67,18 @@ function changeSizeCard() {
     let widthInputValue = widthElement.value; //guarda el valor del input al hacer click en el boton
     let heightElement = document.querySelector("#myInputHeight"); //apunta al input
     let heightInputValue = heightElement.value; //guarda el valor del input al hacer click en el boton
-    let currentWidth = card.style.width;
-    let currentHeight = card.style.height;
+    let currentWidth = getComputedStyle(card).getPropertyValue("width");
+    let currentHeight = getComputedStyle(card).getPropertyValue("height");
     let widthLabel = document.querySelector("#currentWidth");
     let heightLabel = document.querySelector("#currentHeight");
     widthLabel.innerHTML =
       "The current width of the card is " +
-      currentWidth +
-      ",introduce the number of pixels for the new card:";
+      widthInputValue +
+      "px,introduce the number of pixels for the new card:";
     heightLabel.innerHTML =
       "The current height of the card is " +
-      currentHeight +
-      ",introduce the number of pixels for the new card:";
+      heightInputValue +
+      "px,introduce the number of pixels for the new card:";
     card.style.width = `${widthInputValue}px`; //con ese valor, se cambia la propiedad del width
     card.style.height = `${heightInputValue}px`; //con ese valor, se cambia la propiedad del width
   });
